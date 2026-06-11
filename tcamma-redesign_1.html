@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tactical Combat Academy | MMA, BJJ & Striking — Greencastle, PA</title>
+<meta name="description" content="TCAMMA is South Central PA's first true mixed martial arts academy. MMA, Brazilian Jiu-Jitsu, Striking, and youth programs in Greencastle, PA. Free week of training.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --red:#C8102E;
+  --red-dark:#8E0B20;
+  --ink:#121214;
+  --ink-soft:#1C1C20;
+  --canvas:#EDEBE6;
+  --canvas-deep:#E2DfD8;
+  --steel:#6B6E76;
+  --white:#FAFAF8;
+  --display:'Anton',Impact,sans-serif;
+  --body:'Barlow',Arial,sans-serif;
+  --cond:'Barlow Condensed',Arial,sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+}
+body{font-family:var(--body);color:var(--ink);background:var(--canvas);line-height:1.6;font-size:17px}
+img{max-width:100%;display:block}
+a{color:inherit}
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+
+/* ---------- utility ---------- */
+.eyebrow{font-family:var(--cond);font-weight:700;letter-spacing:.22em;text-transform:uppercase;font-size:13px;color:var(--red);display:flex;align-items:center;gap:12px}
+.eyebrow::before{content:"";width:34px;height:3px;background:var(--red)}
+h1,h2,h3{font-family:var(--display);font-weight:400;text-transform:uppercase;line-height:.95;letter-spacing:.01em}
+.btn{display:inline-block;font-family:var(--cond);font-weight:700;text-transform:uppercase;letter-spacing:.14em;font-size:15px;text-decoration:none;padding:16px 34px;border:2px solid var(--red);transition:background .18s,color .18s,transform .18s;cursor:pointer}
+.btn-solid{background:var(--red);color:var(--white)}
+.btn-solid:hover{background:var(--red-dark);border-color:var(--red-dark)}
+.btn-ghost{background:transparent;color:var(--white)}
+.btn-ghost:hover{background:var(--red);color:var(--white)}
+.btn:focus-visible,a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid var(--red);outline-offset:3px}
+
+/* ---------- top bar ---------- */
+.topbar{background:var(--ink);color:#B9BAC0;font-family:var(--cond);font-size:14px;letter-spacing:.08em;text-transform:uppercase}
+.topbar .wrap{display:flex;justify-content:space-between;align-items:center;padding-top:8px;padding-bottom:8px}
+.topbar a{color:var(--white);text-decoration:none;font-weight:600}
+.topbar a:hover{color:var(--red)}
+@media(max-width:640px){.topbar .loc{display:none}.topbar .wrap{justify-content:center}}
+
+/* ---------- nav ---------- */
+.nav{position:sticky;top:0;z-index:50;background:rgba(18,18,20,.96);backdrop-filter:blur(6px);border-bottom:3px solid var(--red)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:72px}
+.brand{display:flex;align-items:center;gap:14px;text-decoration:none}
+.brand-logo{width:48px;height:48px;object-fit:contain}
+.brand-name{font-family:var(--display);color:var(--white);font-size:20px;letter-spacing:.05em;line-height:1}
+.brand-name span{display:block;font-family:var(--cond);font-weight:600;font-size:11px;letter-spacing:.3em;color:#9A9CA4;margin-top:3px}
+.nav-links{display:flex;gap:30px;list-style:none;align-items:center}
+.nav-links a{font-family:var(--cond);font-weight:600;font-size:15px;letter-spacing:.16em;text-transform:uppercase;color:#D8D8DC;text-decoration:none;padding:6px 0;border-bottom:2px solid transparent;transition:color .15s,border-color .15s}
+.nav-links a:hover{color:var(--white);border-color:var(--red)}
+.nav-cta{background:var(--red);color:var(--white)!important;padding:11px 22px!important;border-bottom:none!important}
+.nav-cta:hover{background:var(--red-dark)}
+.nav-toggle{display:none;background:none;border:0;cursor:pointer;width:44px;height:44px;position:relative}
+.nav-toggle span,.nav-toggle span::before,.nav-toggle span::after{content:"";position:absolute;left:8px;width:28px;height:3px;background:var(--white);transition:transform .2s}
+.nav-toggle span{top:21px}
+.nav-toggle span::before{top:-9px;left:0}
+.nav-toggle span::after{top:9px;left:0}
+@media(max-width:880px){
+  .nav-toggle{display:block}
+  .nav-links{position:absolute;top:72px;left:0;right:0;background:var(--ink);flex-direction:column;gap:0;padding:12px 0 20px;display:none;border-bottom:3px solid var(--red)}
+  .nav-links.open{display:flex}
+  .nav-links li{width:100%;text-align:center}
+  .nav-links a{display:block;padding:14px 0}
+  .nav-cta{margin:10px 24px 0;display:inline-block}
+}
+
+/* ---------- hero ---------- */
+.hero{position:relative;background:var(--ink);color:var(--white);overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background:
+  repeating-linear-gradient(115deg,transparent 0 140px,rgba(255,255,255,.025) 140px 142px),
+  radial-gradient(ellipse at 75% 10%,rgba(200,16,46,.22),transparent 55%);
+  pointer-events:none}
+.hero-stripe{position:absolute;top:0;bottom:0;right:-80px;width:300px;background:var(--red);transform:skewX(-12deg);opacity:.92}
+.hero-stripe::after{content:"";position:absolute;left:-26px;top:0;bottom:0;width:10px;background:var(--white);opacity:.25}
+.hero .wrap{position:relative;padding-top:96px;padding-bottom:110px;max-width:1180px}
+.hero h1{font-size:clamp(52px,8.5vw,118px);max-width:11ch;margin:22px 0 8px}
+.hero h1 em{font-style:normal;color:var(--red);-webkit-text-stroke:0}
+.hero p.lede{max-width:560px;font-size:19px;color:#C9CACF;margin:22px 0 36px}
+.hero-actions{display:flex;gap:16px;flex-wrap:wrap}
+.hero-meta{display:flex;gap:44px;margin-top:64px;flex-wrap:wrap}
+.hero-meta div{font-family:var(--cond)}
+.hero-meta b{display:block;font-family:var(--display);font-size:34px;color:var(--white);letter-spacing:.02em}
+.hero-meta span{font-size:13px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:#9A9CA4}
+@media(max-width:640px){.hero .wrap{padding-top:64px;padding-bottom:72px}.hero-stripe{display:none}.hero-meta{gap:28px}}
+
+.hero-logo{position:absolute;right:6%;top:50%;transform:translateY(-50%);width:min(340px,30vw);opacity:.95;filter:drop-shadow(0 18px 40px rgba(0,0,0,.5))}
+@media(max-width:880px){.hero-logo{display:none}}
+.section-photo{width:100%;border:4px solid var(--ink);box-shadow:10px 10px 0 var(--red)}
+.first .section-photo{border-color:var(--red);box-shadow:10px 10px 0 rgba(200,16,46,.35);margin-top:28px}
+
+/* ---------- programs (fight card) ---------- */
+.programs{padding:96px 0;background:var(--canvas)}
+.section-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:48px;flex-wrap:wrap}
+.section-head h2{font-size:clamp(36px,5vw,60px);margin-top:14px}
+.section-head p{max-width:440px;color:#46474D}
+.card-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--ink)}
+.pcard{background:var(--canvas);padding:34px 30px 38px;position:relative;transition:background .18s}
+.pcard::before{content:attr(data-tag);position:absolute;top:0;right:0;background:var(--ink);color:var(--white);font-family:var(--cond);font-weight:700;font-size:11px;letter-spacing:.22em;text-transform:uppercase;padding:6px 12px}
+.pcard:hover{background:var(--white)}
+.pcard h3{font-size:26px;margin:18px 0 12px}
+.pcard p{font-size:15.5px;color:#46474D}
+.pcard .disc{width:46px;height:46px;border:2px solid var(--red);display:flex;align-items:center;justify-content:center;font-family:var(--display);font-size:18px;color:var(--red)}
+.pcard a{font-family:var(--cond);font-weight:700;font-size:14px;letter-spacing:.18em;text-transform:uppercase;color:var(--red);text-decoration:none;display:inline-block;margin-top:18px;border-bottom:2px solid var(--red);padding-bottom:2px}
+.pcard a:hover{color:var(--red-dark);border-color:var(--red-dark)}
+@media(max-width:920px){.card-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.card-grid{grid-template-columns:1fr}}
+
+/* ---------- quote band ---------- */
+.quote{background:var(--red);color:var(--white);padding:64px 0;position:relative;overflow:hidden}
+.quote::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(115deg,transparent 0 120px,rgba(0,0,0,.06) 120px 122px)}
+.quote blockquote{position:relative;font-family:var(--display);font-size:clamp(24px,3.6vw,42px);text-transform:uppercase;line-height:1.1;max-width:880px}
+.quote cite{display:block;margin-top:18px;font-family:var(--cond);font-style:normal;font-weight:700;font-size:14px;letter-spacing:.3em}
+
+/* ---------- why / first night ---------- */
+.first{padding:96px 0;background:var(--ink);color:var(--white)}
+.first .wrap{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start}
+.first h2{font-size:clamp(36px,5vw,56px);margin:14px 0 22px}
+.first p{color:#C0C1C7;margin-bottom:16px}
+.steps{counter-reset:step;list-style:none;margin-top:8px}
+.steps li{counter-increment:step;display:grid;grid-template-columns:64px 1fr;gap:22px;padding:24px 0;border-bottom:1px solid #2A2A2F}
+.steps li:last-child{border-bottom:none}
+.steps li::before{content:counter(step,decimal-leading-zero);font-family:var(--display);font-size:34px;color:var(--red);line-height:1}
+.steps h3{font-size:19px;letter-spacing:.04em;margin-bottom:6px}
+.steps p{font-size:15px;margin:0}
+@media(max-width:880px){.first .wrap{grid-template-columns:1fr;gap:40px}}
+
+/* ---------- faq ---------- */
+.faq{padding:96px 0;background:var(--canvas-deep)}
+.faq-list{max-width:840px;margin-top:8px}
+.faq-item{border-bottom:2px solid var(--ink)}
+.faq-item summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:22px 4px;font-family:var(--cond);font-weight:700;font-size:19px;letter-spacing:.04em;text-transform:uppercase}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-item summary::after{content:"+";font-family:var(--display);font-size:26px;color:var(--red);flex:0 0 auto;transition:transform .18s}
+.faq-item[open] summary::after{transform:rotate(45deg)}
+.faq-item .a{padding:0 4px 24px;color:#3C3D42;max-width:70ch}
+
+/* ---------- testimonials ---------- */
+.testi{padding:96px 0;background:var(--canvas)}
+.testi-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:28px;margin-top:8px}
+.tcard{background:var(--white);border-left:5px solid var(--red);padding:32px 30px;box-shadow:0 1px 0 rgba(18,18,20,.08)}
+.tcard p{font-size:16px;color:#33343A}
+.tcard footer{margin-top:18px;font-family:var(--cond);font-weight:700;letter-spacing:.18em;text-transform:uppercase;font-size:13px;color:var(--red)}
+@media(max-width:760px){.testi-grid{grid-template-columns:1fr}}
+
+/* ---------- trial form ---------- */
+.trial{background:var(--ink);color:var(--white);padding:96px 0;position:relative;overflow:hidden}
+.trial::before{content:"";position:absolute;top:0;bottom:0;left:-120px;width:300px;background:var(--red);transform:skewX(-12deg);opacity:.92}
+.trial .wrap{position:relative;display:grid;grid-template-columns:1.1fr 1fr;gap:72px;align-items:center}
+.trial h2{font-size:clamp(38px,5vw,62px);margin:14px 0 18px}
+.trial p{color:#C0C1C7;max-width:46ch}
+.trial-form{background:var(--white);color:var(--ink);padding:38px 34px}
+.trial-form h3{font-family:var(--cond);font-weight:700;font-size:16px;letter-spacing:.2em;text-transform:uppercase;margin-bottom:22px;color:var(--red)}
+.field{margin-bottom:18px}
+.field label{display:block;font-family:var(--cond);font-weight:600;font-size:13px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:7px;color:#46474D}
+.field input{width:100%;padding:13px 14px;border:2px solid #C9C7C0;background:var(--white);font-family:var(--body);font-size:16px}
+.field input:focus{border-color:var(--red);outline:none}
+.trial-form .btn{width:100%;text-align:center;margin-top:6px}
+.fineprint{font-size:13px;color:#7A7B80;margin-top:14px}
+@media(max-width:880px){.trial .wrap{grid-template-columns:1fr;gap:44px}.trial::before{display:none}}
+
+/* ---------- footer ---------- */
+footer.site{background:#0C0C0E;color:#A7A8AE;padding:72px 0 36px;font-size:15px}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:48px;margin-bottom:48px}
+.foot-grid h4{font-family:var(--cond);font-weight:700;font-size:13px;letter-spacing:.24em;text-transform:uppercase;color:var(--white);margin-bottom:18px}
+.foot-grid ul{list-style:none}
+.foot-grid li{margin-bottom:10px}
+.foot-grid a{text-decoration:none;color:#A7A8AE}
+.foot-grid a:hover{color:var(--white)}
+.foot-brand .brand-name{font-size:24px}
+.foot-brand p{margin-top:16px;max-width:34ch}
+.foot-bottom{border-top:1px solid #232327;padding-top:24px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-family:var(--cond);font-size:13px;letter-spacing:.12em;text-transform:uppercase}
+@media(max-width:760px){.foot-grid{grid-template-columns:1fr;gap:36px}}
+
+/* ---------- reveal animation ---------- */
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .5s ease,transform .5s ease}
+.reveal.in{opacity:1;transform:none}
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="wrap">
+    <span class="loc">120 S Antrim Way · Greencastle, PA</span>
+    <span><a href="tel:7175972311">(717) 597-2311</a> &nbsp;·&nbsp; <a href="mailto:tcamma@live.com">tcamma@live.com</a></span>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav class="nav" aria-label="Main">
+  <div class="wrap">
+    <a class="brand" href="#top">
+      <img class="brand-logo" src="https://www.tcamma.com/wp-content/uploads/2019/04/tcamma85.png" alt="Tactical Combat Academy logo" width="48" height="48">
+      <span class="brand-name">Tactical Combat Academy<span>Mixed Martial Arts · Greencastle PA</span></span>
+    </a>
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" onclick="toggleNav(this)"><span></span></button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#programs">Programs</a></li>
+      <li><a href="#first-night">Your First Night</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a href="#testimonials">Reviews</a></li>
+      <li><a href="#free-week" class="nav-cta">Free Week</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero" id="top">
+  <div class="hero-stripe" aria-hidden="true"></div>
+  <img class="hero-logo" src="https://www.tcamma.com/wp-content/uploads/2019/04/tcamma200.png" alt="Tactical Combat Academy of Mixed Martial Arts crest">
+  <div class="wrap">
+    <p class="eyebrow">South Central PA · Since Day One</p>
+    <h1>Train like a <em>fighter.</em> Live with confidence.</h1>
+    <p class="lede">TCAMMA is the area's first true mixed martial arts academy — MMA, Brazilian Jiu-Jitsu, striking, and youth programs under one roof, taught by coaches with decades on the mat.</p>
+    <div class="hero-actions">
+      <a class="btn btn-solid" href="#free-week">Claim Your Free Week</a>
+      <a class="btn btn-ghost" href="#programs">Explore Programs</a>
+    </div>
+    <div class="hero-meta">
+      <div><b>6+</b><span>Disciplines Taught</span></div>
+      <div><b>Age 4+</b><span>Youth to Adult</span></div>
+      <div><b>No</b><span>Long-Term Contracts</span></div>
+    </div>
+  </div>
+</header>
+
+<!-- PROGRAMS -->
+<section class="programs" id="programs">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div>
+        <p class="eyebrow">The Card</p>
+        <h2>Pick Your Discipline</h2>
+      </div>
+      <p>Attend as many classes as you want across every program — or focus on one. Every path starts the same way: show up.</p>
+    </div>
+    <div class="card-grid">
+      <article class="pcard reveal" data-tag="Flagship">
+        <div class="disc">MMA</div>
+        <h3>Tactical Combat System</h3>
+        <p>Our complete mixed martial arts program — striking, takedowns, and ground work blended into one system, for hobbyists and competitors alike.</p>
+        <a href="#free-week">Start Here</a>
+      </article>
+      <article class="pcard reveal" data-tag="Stand-Up">
+        <div class="disc">STK</div>
+        <h3>Striking</h3>
+        <p>Boxing and kickboxing fundamentals: footwork, defense, combinations, and timing — built round by round.</p>
+        <a href="#free-week">Start Here</a>
+      </article>
+      <article class="pcard reveal" data-tag="Ground">
+        <div class="disc">BJJ</div>
+        <h3>Brazilian Jiu-Jitsu</h3>
+        <p>The gentle art. Learn leverage, position, and submissions in a structured curriculum that rewards consistency over athleticism.</p>
+        <a href="#free-week">Start Here</a>
+      </article>
+      <article class="pcard reveal" data-tag="Ages 4+">
+        <div class="disc">YTH</div>
+        <h3>Youth Programs</h3>
+        <p>Confidence, discipline, and leadership for kids — built on our 3 P's of bully defense: Prevent, Prepare, Protect.</p>
+        <a href="#free-week">Start Here</a>
+      </article>
+      <article class="pcard reveal" data-tag="Engine">
+        <div class="disc">S&amp;C</div>
+        <h3>Strength &amp; Conditioning</h3>
+        <p>A fully equipped weight room plus MMA conditioning classes to build the engine behind your technique.</p>
+        <a href="#free-week">Start Here</a>
+      </article>
+      <article class="pcard reveal" data-tag="1-on-1">
+        <div class="disc">PVT</div>
+        <h3>Private Lessons</h3>
+        <p>Fine-tune your skills and strategy with one-on-one time with any of our instructors. Ask a coach to set up a session.</p>
+        <a href="#free-week">Start Here</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- QUOTE BAND -->
+<section class="quote">
+  <div class="wrap">
+    <blockquote class="reveal">
+      "I fear not the man who has practiced 10,000 kicks once, but I fear the man who has practiced one kick 10,000 times."
+      <cite>— Bruce Lee</cite>
+    </blockquote>
+  </div>
+</section>
+
+<!-- FIRST NIGHT -->
+<section class="first" id="first-night">
+  <div class="wrap">
+    <div class="reveal">
+      <p class="eyebrow">No Experience Needed</p>
+      <h2>Your First Night, Step by Step</h2>
+      <p>Walking into a martial arts gym for the first time is the hardest part. Here's exactly what happens once you do — no surprises, no pressure, no live sparring on night one.</p>
+      <p>Guests are always welcome to show up and watch a class. Prefer to call ahead? We'll have an instructor ready to greet you.</p>
+      <img class="section-photo" src="https://www.tcamma.com/wp-content/uploads/2019/06/kickboxing_muay_thai_tca.jpg" alt="Kickboxing and Muay Thai training at Tactical Combat Academy" loading="lazy">
+    </div>
+    <ol class="steps reveal">
+      <li>
+        <div>
+          <h3>Warm Up With the Class</h3>
+          <p>You'll join the group warm-up — movement, stretching, and drills to get you loose. Go at your own pace.</p>
+        </div>
+      </li>
+      <li>
+        <div>
+          <h3>Learn the Fundamentals</h3>
+          <p>An instructor walks you through a few foundational techniques, then you'll practice them with a partner.</p>
+        </div>
+      </li>
+      <li>
+        <div>
+          <h3>Watch the Live Rounds</h3>
+          <p>Experienced students finish class with controlled sparring. New students observe — you'll join in only when you're ready.</p>
+        </div>
+      </li>
+      <li>
+        <div>
+          <h3>Come Back Tomorrow</h3>
+          <p>Your free week covers every program on the schedule. Try them all and find your fit.</p>
+        </div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq" id="faq">
+  <div class="wrap">
+    <p class="eyebrow">Before You Walk In</p>
+    <h2 style="font-size:clamp(36px,5vw,56px);margin:14px 0 28px">Frequently Asked Questions</h2>
+    <div class="faq-list reveal">
+      <details class="faq-item">
+        <summary>Do I have to call and schedule a visit?</summary>
+        <div class="a">No. Guests are always welcome to show up and watch a class. If you feel more comfortable calling ahead, we'll have an instructor ready to greet you.</div>
+      </details>
+      <details class="faq-item">
+        <summary>What should I wear to my first class?</summary>
+        <div class="a">Comfortable workout clothes — gym shorts and a well-fitting t-shirt or compression shirt work best.</div>
+      </details>
+      <details class="faq-item">
+        <summary>What is a typical class like?</summary>
+        <div class="a">Every class has three phases: warm-ups, technique and drilling, then live sparring for experienced students.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Do I have to spar?</summary>
+        <div class="a">No one is pressured into anything they're not ready for. Eventually, sparring is how you learn movement and timing — but the goal is to refine technique, never to hurt anyone.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Will my child learn how to handle bullying?</summary>
+        <div class="a">Yes. Our children's program is built on the 3 P's: Prevent, Prepare, and Protect. We teach kids to avoid conflict whenever possible — and to be ready if they ever need to defend themselves.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Do I have to commit to a long-term contract?</summary>
+        <div class="a">No. We don't believe in locking students into year-long contracts.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Will I be training alongside professional fighters?</summary>
+        <div class="a">Possibly! Several amateur and professional fighters train here regularly — and they often help newer students learn.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Am I too old or out of shape for martial arts?</summary>
+        <div class="a">No. We have students of all ages and fitness levels, and we'll ease you into the program. The only way to improve your conditioning is to get started.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testi" id="testimonials">
+  <div class="wrap">
+    <p class="eyebrow">From the Mats</p>
+    <h2 style="font-size:clamp(36px,5vw,56px);margin:14px 0 28px">What Our Students Say</h2>
+    <div class="testi-grid">
+      <article class="tcard reveal">
+        <p>"Working law enforcement for over a decade now, I take my job very seriously. The training at Tactical Combat Academy provides me the training I may need on any given day. Coach Josh is simply the best instructor you will find anywhere, with the knowledge and experience to back it up."</p>
+        <footer>— Brandon Wilt</footer>
+      </article>
+      <article class="tcard reveal">
+        <p>"I am forever grateful to those at TCA for accepting my daughter and I into their family. Everyone is welcoming, encouraging, and exceedingly driven to help everyone succeed. There are very few places that embody mind, body, and spiritual strength with as much passion as TCAMMA."</p>
+        <footer>— Parsha Barnhart</footer>
+      </article>
+      <article class="tcard reveal">
+        <p>"My 9-year-old son and I have been training at TCA for a little over 2 years now. All of the coaches and staff are absolutely amazing. They truly care about their practice and teach with an immense amount of heart. Not only that, the academy is exceptionally clean. It's my HAPPY PLACE!"</p>
+        <footer>— Jelyn Waltz</footer>
+      </article>
+      <article class="tcard reveal">
+        <p>"Amazing instruction in a wide range of martial arts! Great atmosphere that keeps you coming back for more day after day. Everyone is very helpful and at the same time pushes you to get better. Competition team is a plus — if you're looking to turn it up, this is the place!"</p>
+        <footer>— Joe Harrison</footer>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- FREE WEEK -->
+<section class="trial" id="free-week">
+  <div class="wrap">
+    <div class="reveal">
+      <p class="eyebrow">Zero Commitment</p>
+      <h2>One Free Week.<br>Every Program.</h2>
+      <p>Fill out the form and a school representative will reach out with everything you need for your free one-week trial — schedule, what to bring, and where to park.</p>
+      <img class="section-photo" src="https://www.tcamma.com/wp-content/uploads/2019/06/tactical_combat_academy_greencastle_pa.jpg" alt="Inside the Tactical Combat Academy training facility in Greencastle, PA" loading="lazy" style="margin-top:30px;max-width:520px">
+    </div>
+    <form class="trial-form reveal" onsubmit="event.preventDefault();this.innerHTML='<h3>You\'re In</h3><p>Thanks — a school representative will reach out soon with details about your free week of training.</p>'">
+      <h3>Start Your Free Week</h3>
+      <div class="field">
+        <label for="f-name">Name</label>
+        <input id="f-name" type="text" name="name" autocomplete="name" required>
+      </div>
+      <div class="field">
+        <label for="f-phone">Phone Number</label>
+        <input id="f-phone" type="tel" name="phone" autocomplete="tel" required>
+      </div>
+      <div class="field">
+        <label for="f-email">Email</label>
+        <input id="f-email" type="email" name="email" autocomplete="email" required>
+      </div>
+      <button class="btn btn-solid" type="submit">Claim My Free Week</button>
+      <p class="fineprint">No contract. No pressure. Just show up and train.</p>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <img src="https://www.tcamma.com/wp-content/uploads/2019/04/tcamma85.png" alt="" width="64" height="64" style="margin-bottom:16px">
+        <span class="brand-name" style="color:var(--white)">Tactical Combat Academy</span>
+        <p>The area's first true mixed martial arts academy. Regardless of skill or fitness level, our programs are designed to help every student reach their full potential.</p>
+      </div>
+      <div>
+        <h4>Programs</h4>
+        <ul>
+          <li><a href="#programs">Tactical Combat System</a></li>
+          <li><a href="#programs">Brazilian Jiu-Jitsu</a></li>
+          <li><a href="#programs">Striking</a></li>
+          <li><a href="#programs">Youth Programs</a></li>
+          <li><a href="#programs">Private Lessons</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Come Find Us</h4>
+        <ul>
+          <li>120 S Antrim Way<br>Greencastle, PA 17225</li>
+          <li><a href="tel:7175972311">(717) 597-2311</a></li>
+          <li><a href="mailto:tcamma@live.com">tcamma@live.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Tactical Combat Academy of Mixed Martial Arts</span>
+      <span><a href="#top" style="color:#A7A8AE;text-decoration:none">Back to Top ↑</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+function toggleNav(btn){
+  const links=document.getElementById('navLinks');
+  const open=links.classList.toggle('open');
+  btn.setAttribute('aria-expanded',open);
+}
+// close mobile menu on link tap
+document.querySelectorAll('.nav-links a').forEach(a=>a.addEventListener('click',()=>{
+  document.getElementById('navLinks').classList.remove('open');
+}));
+// scroll reveal
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+if(matchMedia('(prefers-reduced-motion: reduce)').matches){document.querySelectorAll('.reveal').forEach(el=>el.classList.add('in'))}
+</script>
+</body>
+</html>
